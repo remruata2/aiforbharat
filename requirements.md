@@ -63,7 +63,7 @@ Zirna IO is a comprehensive AI-powered exam preparation SaaS platform designed t
 1. WHEN a student sends a chat message, THE Hybrid_Search_Service SHALL retrieve relevant chunks using RRF (Reciprocal Rank Fusion) scoring
 2. THE Search_Service SHALL combine keyword search (tsvector) and semantic search (pgvector) results
 3. WHEN generating a response, THE AI_Service SHALL use retrieved chunks as context for RAG
-4. THE System SHALL support multiple AI providers (Gemini, OpenAI, Anthropic, OpenRouter)
+4. THE System SHALL support multiple AI providers with priority: Amazon Bedrock (Claude 3.5 Sonnet - primary), Google Gemini, OpenAI, Anthropic, OpenRouter (fallback)
 5. WHEN a conversation is created, THE System SHALL associate it with the selected subject and optionally chapter
 6. THE System SHALL store conversation history with message role, content, sources, and token counts
 7. WHEN displaying sources, THE System SHALL include page number citations from chunk metadata
@@ -176,7 +176,7 @@ Zirna IO is a comprehensive AI-powered exam preparation SaaS platform designed t
 
 #### Acceptance Criteria
 
-1. THE System SHALL store encrypted API keys for multiple providers (Gemini, OpenAI, Anthropic, LlamaParse, OpenRouter)
+1. THE System SHALL store encrypted API keys for multiple providers with priority: Amazon Bedrock (primary), Google Gemini, OpenAI, Anthropic, LlamaParse, OpenRouter (fallback)
 2. THE System SHALL support multiple keys per provider with priority ordering
 3. WHEN an API call fails, THE System SHALL automatically retry with the next available key
 4. THE System SHALL track success_count and error_count per key for monitoring

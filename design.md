@@ -43,9 +43,10 @@ graph TB
     end
 
     subgraph "External Services"
-        GEMINI[Google Gemini]
-        OPENAI[OpenAI]
-        ANTHROPIC[Anthropic]
+        BEDROCK[Amazon Bedrock<br/>Claude 3.5 Sonnet<br/>Primary AI]
+        GEMINI[Google Gemini<br/>Fallback]
+        OPENAI[OpenAI<br/>Fallback]
+        ANTHROPIC[Anthropic<br/>Fallback]
         LLAMA[LlamaParse]
         RAZORPAY[Razorpay]
     end
@@ -63,6 +64,7 @@ graph TB
     WS --> MOBILE
     
     AI --> CACHE
+    AI --> BEDROCK
     AI --> GEMINI
     AI --> OPENAI
     AI --> ANTHROPIC
